@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kathryn's ToDo List</title>
+    <link rel="stylesheet">
+</head>
+
+<body>
+        <div style="font-size: 50px; text-align: center;background-color: rgb(43, 226, 150);">
+            Kathryn's Website
+        </div>
+        
+        <div class="wrapper">
+        <div class="header">
+          <h1> To Do List </h1>
+        </div>
+
+        <div class="add-task">
+          <input id="new-task-input" type="text" placeholder="Add a task..." />
+          <button class="add-task-btn">+</button>
+        </div>
+
+        <div class="task-list-header">
+          <h2>Tasks</h2>
+          <button class="remove-complete-btn">Clear Complete</button>
+        </div>
+
+        <div class="task-list-wrapper">
+          <ul class="task-list"></ul>
+        </div>
+      </div>
+
+      <template id="task-template">
+        <li class="task">
+          <input type="checkbox" />
+          <label>
+            <span class="check-mark"></span>
+            <span class="custom-checkbox"></span>
+          </label>
+        </li>
+      </template>
+
+    <script src="mainProject1.js"></script>
+</body>
+
+</html>
