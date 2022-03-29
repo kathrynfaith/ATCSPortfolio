@@ -7,7 +7,8 @@ $yellow: #ffeb3b;
 $wheat: #f5deb3;
 
 // Mixins
-@mixin transition($property) {
+@mixin transition($property) 
+{
   transition: $property .5s ease;
 }
 
@@ -51,24 +52,15 @@ nav label {
   display: block;
   position: relative;
   width: 100%;
-  padding: .25em 0;
-  height: 2.5em;
-  cursor: pointer;
   &:before {
     content: "\f0c9";
     position: absolute;
     width: 100%;
     font-family: fontAwesome;
-    font-size: 2em;
+    font-size: 30;
     text-align: center;
-    text-shadow: 2px 2px 0 #666;
-    @include transition(all);
   }
-  &:hover:before {text-shadow: none;}
 }
-:target {
-  z-index: 2;
-  opacity: 1;
 }
 /*Hidding mechanism*/
 input {display: none;}
@@ -171,27 +163,4 @@ section {
 /*Contact*/
 .sec-contact {
   background: $wheat;
-}
-.soc-media {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  align-self: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.soc-media li {float: left;}
-.soc-media li:not(:first-child) a {margin-left: .75em;}
-.soc-media a {
-  display: block;
-  color: #aaa;
-  font-size: 3em;
-  text-decoration: none;
-  @include transition(color);
-  &:hover {color: #333;}
-  &:active {color: #666;}
 }
