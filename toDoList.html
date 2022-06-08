@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="p-3 rounded text-white" style="background-color:#000;width:100%!important;">
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold text-center"><b>To-Do List</b></h1>
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col-8">
+                <div class="form-floating">
+                    <input type="text" class="form-control shadow-none font-weight-bold" id="task" placeholder="Get milk">
+                    <label for="floatingInput"><b>Task</b></label>
+                </div>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-primary h-100 w-100 shadow-none" onclick="addTask()"><b>Add Task</b></button>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-primary h-100 w-100 shadow-none" onclick="clearComplete()"><b>Clear Complete</b></button>
+            </div>
+        </div>
+        <div class="rounded text-white" style="background-color:#000;width:100%!important;">
+            <div class="container-fluid py-3">
+             <h1 class="display-5 fw-bold text-center"><b>Tasks</b></h1>
+           </div>
+       </div>
+       <div id="tasks" class="my-3"></div>
+    </div>
+    
+    <a href="https://imakhija.me/atcs22"><div style="position:fixed;bottom:0px;right:0px;background-color:#13315C;padding:10px;margin-right:10px;margin-bottom:10px;border-radius:25px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#8da9c4" class="bi bi-house-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+              </svg>
+        </div></a>
+
+    <script>
+        let num = 1;
+        function addTask() {
+            if(document.getElementById("task").value != "") {
+                let task = document.createElement("li");
+                let text = document.createTextNode(document.getElementById("task").value);
+                task.style.fontSize = "50px";
+                task.style.fontWeight = "bold";
+                task.appendChild(text);
+                task.setAttribute("id", num);
+                task.setAttribute("onclick", "crossOut(" + num + ")");
+                document.getElementById("tasks").appendChild(task);
+                document.getElementById("task").value = "";
+                num++;
+            }
+        }
+        
+        function crossOut(num) {
+            document.getElementById(num).style.transitionDuration = "1s";
+            if(document.getElementById(num).style.textDecoration == "line-through") {
+                document.getElementById(num).style.textDecoration = "none";
+                document.getElementById(num).style.color = "black";
+            }
+            else {
+                document.getElementById(num).style.textDecoration = "line-through";
+                document.getElementById(num).style.color = "red";
+            }
+        }
+
+        function clearComplete() {
+            for(var i = 1; i < num; i++) {
+                if(document.getElementById(i).style.textDecoration == "line-through") {
+                    document.getElementById(i).remove();
+                }
+            }
+        }
+
+        document.getElementById("task").addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                addTask();
+            }
+        });
+    </script>
+
+    <style>
+        input[type="text"] {
+            font-weight:bold;
+        }
+        
+        body {
+            background-color:#0b2545;
+        }
+    </style>
+</body>
+</html>
