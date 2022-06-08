@@ -14,7 +14,7 @@
         <div class="row my-4">
             <div class="col-8">
                 <div class="form-floating">
-                    <input type="text" class="form-control shadow-none font-weight-bold" id="task" placeholder="Buy groceries">
+                    <input type="text" class="form-control shadow-none" placeholder="New Task">
                     <label for="floatingInput"><b>Task</b></label>
                 </div>
             </div>
@@ -40,8 +40,7 @@
             if(document.getElementById("task").value != "") {
                 let task = document.createElement("li");
                 let text = document.createTextNode(document.getElementById("task").value);
-                task.style.fontSize = "50px";
-                task.style.fontWeight = "bold";
+                task.style.fontSize = "35px";
                 task.appendChild(text);
                 task.setAttribute("id", num);
                 task.setAttribute("onclick", "crossOut(" + num + ")");
@@ -59,7 +58,6 @@
             }
             else {
                 document.getElementById(num).style.textDecoration = "line-through";
-                document.getElementById(num).style.color = "red";
             }
         }
 
